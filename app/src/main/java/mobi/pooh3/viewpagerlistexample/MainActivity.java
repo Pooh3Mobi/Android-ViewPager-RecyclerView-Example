@@ -34,6 +34,28 @@ public class MainActivity extends AppCompatActivity {
     tabLayout.setupWithViewPager(mViewPager);
 
     mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+    mViewPager.setCurrentItem(10/2);
+    mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+      public int focusPage;
+
+      @Override
+      public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+      }
+
+      @Override
+      public void onPageSelected(int position) {
+        focusPage = position;
+      }
+
+      @Override
+      public void onPageScrollStateChanged(int state) {
+        if (state == ViewPager.SCROLL_STATE_IDLE) {
+          mViewPager.setCurrentItem(10/2, false);
+        }
+
+      }
+    });
     tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
     FloatingActionButton fab = findViewById(R.id.fab);

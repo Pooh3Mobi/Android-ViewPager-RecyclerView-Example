@@ -12,7 +12,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
   @Override
   public CharSequence getPageTitle(int position) {
-    return "sec " + position;
+    return "sec " + (position - 10/2);
   }
 
   @Override
